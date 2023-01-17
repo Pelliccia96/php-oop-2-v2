@@ -99,7 +99,8 @@ class Product {
     }
 
     public function getCategory() {
-        return $this->category;
+        $categoryArray = ["name" => $this->category->getName(), "icon" => '<i class="fa-solid '. $this->category->getIcon().'"></i>'];
+        return $categoryArray;
     }
 
     public function setCategory($category) {
@@ -134,6 +135,12 @@ class Product {
                         <?php if (method_exists($product, "getMaterials")) { ?>
                             <p>Materiali: <?php echo implode(", ", $product->getMaterials()) ?></p>
                         <?php } ?>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div>
+                        <h6>Categoria: <?php echo $product->getCategory()["name"] ?></h6>
+                        <p><?php echo $product->getCategory()["icon"] ?></p>
                     </div>
                 </li>
             </ul>

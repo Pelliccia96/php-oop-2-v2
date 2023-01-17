@@ -2,7 +2,7 @@
 
 class Category {
     protected $name;
-    protected $icon = "fa-layer-group";
+    protected $icon;
 
     function __construct($_name, $_icon = null) {
         $this->setName($_name);
@@ -29,7 +29,7 @@ class Category {
         $this->icon = $icon;
     }
 
-    public function getIconHTML() {
-        return "<i class='fas $this->icon' />";
+    public function getIconHTML(){
+        return $this->icon;
     }
 }

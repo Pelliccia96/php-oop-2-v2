@@ -23,12 +23,8 @@ $productsList = [
     $croccantini,
     $palla,
     $tiragraffi,
-    $tiragraffi,
     $palla,
-    $croccantini,
     $ciboScatola,
-    $rismaCarta,
-    $penna,
 ];
 
 /* var_dump($productsList); */
@@ -54,7 +50,7 @@ $productsList = [
         </div>
         <div class="row text-black">
             <?php foreach ($productsList as $product) : ?>
-                <div class="col-2 g-4">
+                <div class="col-3 g-5">
                     <?php $product->printCardHTML($product) ?>
                 </div>
             <?php endforeach ?>
