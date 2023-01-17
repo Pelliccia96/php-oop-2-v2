@@ -107,45 +107,18 @@ class Product {
     }
 
     public function printCardHTML($product) {
-?>
-
-        <div class="card">
-            <img src="<?php echo $product->getImage() ?>" class="card-img-top" alt="">
-            <div class="card-body">
-                <h3><?php echo $product->getName() ?></h3>
-                <h4><?php echo $product->getPrice() ?> &#8364;</h4>
-
-                <?php if (method_exists($product, "getCalories")) { ?>
-                    <div>Calorie: <?php echo $product->getCalories() ?></div>
-                <?php } ?>
-
-                <?php if (method_exists($product, "getMaterials")) { ?>
-                    <div>Materiali: <?php echo implode(", ", $product->getMaterials()) ?></div>
-                <?php } ?>
-            </div>
-        </div>
-
-<?
-    }
-
-    public function printFullCard($product) {
     ?>
         <div class="card">
             <img src="<?php echo $product->getImage() ?>" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $product->getName() ?></h5>
-                <p class="card-text">Descrizione generale prodotto - Lorem ipsum dolor sit amet consectetur adipisicing elit incidunt vitae.</p>
+                <p class="card-text">Descrizione generale prodotto - Lorem ipsum dolor.</p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <div>
                         <h6>Prezzo</h6>
                         <p><?php echo $product->getPrice() ?> &#8364;</p>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div>
-                        <h6><i class="<?php echo $product->getIconHTML() ?>"></i></h6>
                     </div>
                 </li>
                 <li class="list-group-item">
@@ -160,7 +133,7 @@ class Product {
                     <div>
                         <h6>Gioco</h6>
                         <?php if (method_exists($product, "getMaterials")) { ?>
-                            <p>Materiali: <?php echo implode("", $product->getMaterials()) ?></p>
+                            <p>Materiali: <?php echo implode(", ", $product->getMaterials()) ?></p>
                         <?php } ?>
                     </div>
                 </li>
