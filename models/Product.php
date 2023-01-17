@@ -112,7 +112,6 @@ class Product {
             <img src="<?php echo $product->getImage() ?>" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $product->getName() ?></h5>
-                <p class="card-text">Descrizione generale prodotto - Lorem ipsum dolor.</p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
