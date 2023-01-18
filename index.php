@@ -4,30 +4,34 @@ require_once "./models/Category.php";
 require_once "./models/Food.php";
 require_once "./models/Toy.php";
 
+try {
+    $catCategory = new Category("Gatti", "fa-cat");
+    $dogCategory = new Category("Cani", "fa-dog");
+    $officeCategory = new Category("Cancelleria", "fa-briefcase");
 
-$catCategory = new Category("Gatti", "fa-cat");
-$dogCategory = new Category("Cani", "fa-dog");
-$officeCategory = new Category("Cancelleria", "fa-briefcase");
+    $penna = new Product("Penna a sfera", 1.3, "https://picsum.photos/id/237/350/400", $officeCategory);
+    $rismaCarta = new Product("Risma carta A4", 4.15, "https://picsum.photos/id/593/350/400", $officeCategory);
+    $ciboScatola = new Food("Cibo in scatola", .50, "https://picsum.photos/id/582/350/400", $dogCategory, 300);
+    $croccantini = new Food("Croccantini al pollo", 3.20, "https://picsum.photos/id/200/350/400", $catCategory, 380);
+    $palla = new Game("Palla da tennis", .99, "https://picsum.photos/id/433/350/400", $dogCategory, ["feltro", "plastica"]);
+    $tiragraffi = new Game("Tiragraffi", 21.80, "https://picsum.photos/id/219/350/400", $catCategory, ["legno", "pvc"]);
 
-$penna = new Product("Penna a sfera", 1.3, "https://picsum.photos/id/237/350/400", $officeCategory);
-$rismaCarta = new Product("Risma carta A4", 4.15, "https://picsum.photos/id/593/350/400", $officeCategory);
-$ciboScatola = new Food("Cibo in scatola", .50, "https://picsum.photos/id/582/350/400", $dogCategory, 300);
-$croccantini = new Food("Croccantini al pollo", 3.20, "https://picsum.photos/id/200/350/400", $catCategory, 380);
-$palla = new Game("Palla da tennis", .99, "https://picsum.photos/id/433/350/400", $dogCategory, ["feltro", "plastica"]);
-$tiragraffi = new Game("Tiragraffi", 21.80, "https://picsum.photos/id/219/350/400", $catCategory, ["legno", "pvc"]);
-
-$productsList = [
-    $penna,
-    $rismaCarta,
-    $ciboScatola,
-    $croccantini,
-    $palla,
-    $tiragraffi,
-    $palla,
-    $ciboScatola,
-];
-
+    $productsList = [
+        $penna,
+        $rismaCarta,
+        $ciboScatola,
+        $croccantini,
+        $palla,
+        $tiragraffi,
+        $palla,
+        $ciboScatola,
+    ];
 /* var_dump($productsList); */
+
+} catch(Exception $e) {
+    echo "Errore! C'è stato un problema con la creazione del prodotto.";
+    echo $e ->getMessage();
+}
 
 ?>
 

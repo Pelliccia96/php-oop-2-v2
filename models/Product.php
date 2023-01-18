@@ -1,8 +1,10 @@
 <?php
 require_once __DIR__ . "/Category.php";
+require_once __DIR__ . "/../traits/HasId.php";
 
 class Product {
-    private $id;
+    use HasId;
+
     protected $name;
     protected $price;
     protected $image;
@@ -31,15 +33,7 @@ class Product {
         $this->setQuantity($_quantity);
         $this->setImage($_image);
 
-        $this->setId();
-    }
-
-    public function getId() {
-        return $this->id;
-    }
-
-    private function setId() {
-        $this->id = uniqid("prod-");
+        $this->setId("codice: ");
     }
 
     public function getName() {
@@ -48,7 +42,7 @@ class Product {
 
     public function setName($name) {
         if (empty($name)) {
-            return;
+            throw new Exception("Il nome inserito non è valido");
         }
 
         $this->name = $name;
@@ -113,6 +107,7 @@ class Product {
             <img src="<?php echo $product->getImage() ?>" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $product->getName() ?></h5>
+                <p><?php echo $product->getId() ?></p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
